@@ -38,6 +38,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                    [
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'controller' => 'api/default'
+                ]
             ],
         ],
     ],
@@ -48,6 +53,9 @@ return [
             'confirmWithin' => 21600,
             'cost' => 12,
             'admins' => ['admin']
+        ],
+        'api' => [
+            'class' => 'frontend\modules\api\ApiModule',
         ],
     ],
     'params' => $params,
