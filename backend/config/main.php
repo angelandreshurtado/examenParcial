@@ -26,7 +26,7 @@ return [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                    [
+                [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
@@ -39,6 +39,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'controller' => 'api/default'
+                ]
             ],
         ],
     ],
@@ -49,6 +54,9 @@ return [
             'confirmWithin' => 21600,
             'cost' => 12,
             'admins' => ['admin']
+        ],
+        'api' => [
+            'class' => 'backend\modules\api\ApiModule',
         ],
     ],
     'params' => $params,
